@@ -1,1 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyDev Apps | Herramientas 3D</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .app-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .version-tag {
+            font-size: 0.7em;
+            background: var(--accent-color);
+            color: #000;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .warning-box {
+            background: rgba(243, 156, 18, 0.1);
+            border-left: 4px solid #f39c12;
+            padding: 10px;
+            margin: 15px 0;
+            font-size: 0.85em;
+            color: #f39c12;
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: 0.3s;
+        }
+        .back-button:hover {
+            color: var(--accent-color);
+        }
+        details {
+            background: #111;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        summary {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
 
+    <div class="profile-container">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Volver a Enlaces
+        </a>
+
+        <img src="logo.png" alt="Sky 3D Logo" class="logo">
+        <h1>SkyDev Software</h1>
+        <p style="color: #888; margin-bottom: 30px;">Herramientas exclusivas para Impresión 3D</p>
+
+        <div class="links-container">
+            
+            <div class="app-card">
+                <div class="app-header">
+                    <h3 style="margin: 0;">SkyScale 3D</h3>
+                    <span class="version-tag">v1.0</span>
+                </div>
+                
+                <p style="font-size: 0.9em; color: #ccc;">
+                    Optimización de escalado para Chopps con insertos de aluminio. Evitá el desperdicio de filamento calculando el % exacto según la circunferencia real.
+                </p>
+
+                <a href="./apps/SkyScale3D.apk" class="link-card" style="margin: 10px 0;" download>
+                    <i class="fas fa-download"></i>
+                    <span>Descargar APK (Directo)</span>
+                </a>
+                
+                <a href="https://www.virustotal.com/gui/file/43027fef0f0fefec5ba49e3604a0b26ff593f6eb399a4a5522e3bd12c2422492/detection" target="_blank" class="link-card" style="margin: 0; background: #1a1a1a; font-size: 0.8em;">
+                    <i class="fas fa-shield-virus"></i>
+                    <span>Ver Reporte VirusTotal</span>
+                </a>
+
+                <div class="warning-box">
+                    <strong>⚠️ Importante:</strong> Se recomienda imprimir primero una "rodaja" de prueba del STL para verificar el calce antes de la pieza completa. Recordá ajustar el eje Z manualmente según el largo del aluminio.
+                </div>
+
+                <details>
+                    <summary>📖 Guía de uso rápido</summary>
+                    <div style="padding-top: 10px; color: #aaa; line-height: 1.6;">
+                        1. Medí el contorno superior del aluminio con cinta de modista.<br>
+                        2. Ingresá los <b>cm</b> en la app para obtener el diámetro.<br>
+                        3. Medí el diámetro del STL en tu laminador e ingresalo.<br>
+                        4. La app te dará el <b>% de escala</b> para los ejes X e Y.<br>
+                        5. Usá la calculadora integrada para notas rápidas.
+                    </div>
+                </details>
+
+                <p style="text-align: center; font-size: 0.75em; color: #555; margin-top: 15px;">
+                    🎥 Video tutorial próximamente en YouTube y TikTok.
+                </p>
+            </div>
+
+            <p style="color: #444; font-size: 0.8em;">Más aplicaciones en desarrollo...</p>
+
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 SkyDev - Innovación en Catamarca
+    </footer>
+
+</body>
+</html>
