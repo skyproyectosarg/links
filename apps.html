@@ -9,30 +9,63 @@
     <link rel="stylesheet" href="style.css">
     
     <style>
-        .app-card {
+        .security-notice {
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid #00ff88;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 0.85em;
+            line-height: 1.4;
+            color: #00ff88;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .app-collapsible {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid #333;
             border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 25px;
-            text-align: left;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: 0.3s;
         }
-        .app-header {
+
+        .app-collapsible summary {
+            padding: 20px;
+            list-style: none; 
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--accent-color);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
+            cursor: pointer;
+            font-weight: bold;
         }
+
+        .app-collapsible summary::-webkit-details-marker {
+            display: none; 
+        }
+
+        .app-collapsible[open] {
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .app-content {
+            padding: 0 20px 20px 20px;
+            text-align: left;
+            border-top: 1px solid #222;
+        }
+
         .version-tag {
             font-size: 0.7em;
             background: var(--accent-color);
             color: #000;
             padding: 2px 8px;
             border-radius: 4px;
-            font-weight: bold;
+            margin-left: 10px;
         }
+
         .warning-box {
             background: rgba(243, 156, 18, 0.1);
             border-left: 4px solid #f39c12;
@@ -41,27 +74,22 @@
             font-size: 0.85em;
             color: #f39c12;
         }
+
         .back-button {
             display: inline-block;
             margin-bottom: 20px;
             color: #888;
             text-decoration: none;
             font-size: 0.9em;
-            transition: 0.3s;
         }
-        .back-button:hover {
-            color: var(--accent-color);
-        }
-        details {
+
+        .back-button:hover { color: var(--accent-color); }
+
+        .inner-tutorial {
             background: #111;
-            padding: 10px;
+            padding: 15px;
             border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.9em;
-        }
-        summary {
-            font-weight: bold;
-            color: var(--accent-color);
+            margin-top: 15px;
         }
     </style>
 </head>
@@ -74,57 +102,68 @@
 
         <img src="logo.png" alt="Sky 3D Logo" class="logo">
         <h1>SkyDev Software</h1>
-        <p style="color: #888; margin-bottom: 30px;">Herramientas exclusivas para Impresión 3D</p>
+        
+        <div class="security-notice">
+            <i class="fas fa-shield-alt" style="font-size: 1.5em;"></i>
+            <span>
+                <strong>Búnker Oficial:</strong> Este es el único sitio autorizado para descargar mis apps. Así evitás publicidad engañosa e intermediarios. <b>Seguridad garantizada solo desde aquí.</b>
+            </span>
+        </div>
 
         <div class="links-container">
             
-            <div class="app-card">
-                <div class="app-header">
-                    <h3 style="margin: 0;">SkyScale 3D</h3>
-                    <span class="version-tag">v1.0</span>
-                </div>
-                
-                <p style="font-size: 0.9em; color: #ccc;">
-                    Optimización de escalado para Chopps con insertos de aluminio. Evitá el desperdicio de filamento calculando el % exacto según la circunferencia real.
-                </p>
-
-                <a href="./apps/SkyScale3D.apk" class="link-card" style="margin: 10px 0;" download>
-                    <i class="fas fa-download"></i>
-                    <span>Descargar APK (Directo)</span>
-                </a>
-                
-                <a href="https://www.virustotal.com/gui/file/7aca41ff1042cc9d44721fdc01b255e79ffb18291abf3b627790130710ea9257/detection" target="_blank" class="link-card" style="margin: 0; background: #1a1a1a; font-size: 0.8em;">
-                    <i class="fas fa-shield-virus"></i>
-                    <span>Ver Reporte VirusTotal</span>
-                </a>
-
-                <div class="warning-box">
-                    <strong>⚠️ Importante:</strong> Se recomienda imprimir primero una "rodaja" de prueba del STL para verificar el calce antes de la pieza completa. Recordá ajustar el eje Z manualmente según el largo del aluminio.
-                </div>
-
-                <details>
-                    <summary>📖 Guía de uso rápido</summary>
-                    <div style="padding-top: 10px; color: #aaa; line-height: 1.6;">
-                        1. Medí el contorno superior del aluminio con cinta de modista.<br>
-                        2. Ingresá los <b>cm</b> en la app para obtener el diámetro.<br>
-                        3. Medí el diámetro del STL en tu laminador e ingresalo.<br>
-                        4. La app te dará el <b>% de escala</b> para los ejes X e Y.<br>
-                        5. Usá la calculadora integrada para notas rápidas.
+            <details class="app-collapsible">
+                <summary>
+                    <div>
+                        <i class="fas fa-ruler-combined"></i> SkyScale 3D 
+                        <span class="version-tag">v1.0</span>
                     </div>
-                </details>
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                
+                <div class="app-content">
+                    <p style="font-size: 0.9em; color: #ccc; margin-top: 15px;">
+                        Optimizá el escalado de tus Chopps. Calculá el % exacto según la circunferencia real del inserto de aluminio.
+                    </p>
 
-                <p style="text-align: center; font-size: 0.75em; color: #555; margin-top: 15px;">
-                    🎥 Video tutorial próximamente en YouTube y TikTok.
-                </p>
-            </div>
+                    <a href="./apps/SkyScale3D.apk" class="link-card" style="margin: 10px 0;" download>
+                        <i class="fas fa-download"></i>
+                        <span>Descargar APK Directa</span>
+                    </a>
+                    
+                    <a href="https://www.virustotal.com/gui/file/7aca41ff1042cc9d44721fdc01b255e79ffb18291abf3b627790130710ea9257/detection" target="_blank" class="link-card" style="margin: 0; background: #1a1a1a; font-size: 0.8em;">
+                        <i class="fas fa-shield-virus"></i>
+                        <span>Ver Reporte VirusTotal</span>
+                    </a>
 
-            <p style="color: #444; font-size: 0.8em;">Más aplicaciones en desarrollo...</p>
+                    <div class="warning-box">
+                        <strong>⚠️ Tip Técnico:</strong> Imprimí una "rodaja" de prueba para verificar el calce. Ajustá el eje Z según el largo de tu aluminio.
+                    </div>
+
+                    <div class="inner-tutorial">
+                        <strong style="color: var(--accent-color); font-size: 0.9em;">📖 Guía Rápida:</strong>
+                        <ul style="color: #aaa; font-size: 0.85em; padding-left: 20px; margin-top: 10px; line-height: 1.6;">
+                            <li>Medí contorno del aluminio (cm).</li>
+                            <li>Medí diámetro del STL en laminador.</li>
+                            <li>La app te dará el % para X e Y.</li>
+                        </ul>
+                    </div>
+
+                    <p style="text-align: center; font-size: 0.7em; color: #555; margin-top: 15px;">
+                        🎥 Video tutorial próximamente en YouTube y TikTok.
+                    </p>
+                </div>
+            </details>
+
+            <p style="color: #444; font-size: 0.8em; margin-top: 20px;">
+                <i class="fas fa-code"></i> Próximas utilidades en desarrollo...
+            </p>
 
         </div>
     </div>
 
     <footer>
-        &copy; 2026 SkyDev - Innovación en Catamarca
+        &copy; 2026 SkyDev - SFVC, Catamarca
     </footer>
 
 </body>
