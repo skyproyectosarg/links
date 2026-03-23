@@ -91,6 +91,19 @@
             border-radius: 8px;
             margin-top: 15px;
         }
+
+        .step-item {
+            margin-bottom: 15px;
+            color: #ccc;
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+
+        .step-item strong {
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 3px;
+        }
     </style>
 </head>
 <body>
@@ -141,18 +154,37 @@
                     </div>
 
                     <div class="inner-tutorial">
-                        <strong style="color: var(--accent-color); font-size: 0.9em;">📖 Guía Rápida:</strong>
+                        <h4 style="color: var(--accent-color); font-size: 1em; margin-bottom: 15px;">📖 Guía Técnica de Escalado:</h4>
                         
-                        <p style="font-size: 0.8em; color: #888; margin: 10px 0 5px 0;">Herramienta recomendada para medir radios:</p>
-                        <a href="https://makerworld.com/en/models/2225287-caliper-radius-gauge-corner-radius-up-to-130-mm#profileId-2467730" target="_blank" class="link-card" style="margin: 0 0 15px 0; background: #ee3124; font-size: 0.8em; border: none;">
-                            <i class="fas fa-external-link-alt"></i> <span>Accesorio Calibre (Créditos al Autor)</span>
+                        <p style="font-size: 0.8em; color: #888; margin-bottom: 8px;">Herramienta recomendada para medir radios:</p>
+                        <a href="https://makerworld.com/en/models/2225287-caliper-radius-gauge-corner-radius-up-to-130-mm#profileId-2467730" target="_blank" class="link-card" style="margin: 0 0 20px 0; background: #333; border: 1px solid #444; font-size: 0.8em;">
+                            <i class="fas fa-external-link-alt"></i> <span>Accesorio Calibre (MakerWorld)</span>
                         </a>
 
-                        <ul style="color: #aaa; font-size: 0.85em; padding-left: 20px; margin-top: 10px; line-height: 1.6;">
-                            <li>Medí contorno del aluminio (cm).</li>
-                            <li>Medí diámetro del STL en laminador.</li>
-                            <li>La app te dará el % para X e Y.</li>
-                        </ul>
+                        <div class="step-item">
+                            <strong>1. Medición del Inserto</strong>
+                            Medí el contorno superior del aluminio con cinta de modista (bien tensa). Anotá los cm exactos.
+                        </div>
+
+                        <div class="step-item">
+                            <strong>2. Medición del Diseño (STL)</strong>
+                            En Bambu Studio, Orca o Cura, medí el diámetro interno del hueco del modelo donde encastra el aluminio.
+                        </div>
+
+                        <div class="step-item">
+                            <strong>3. Cálculo en la App</strong>
+                            Ingresá ambos valores en SkyScale 3D. La app te dará el <strong>% de escala</strong> necesario para X e Y.
+                        </div>
+
+                        <div class="step-item">
+                            <strong>4. Configuración del Slicer</strong>
+                            Desactivá el "Escalado Uniforme" (el candadito), aplicá el % en X e Y, y ajustá la altura Z manualmente.
+                        </div>
+
+                        <div class="step-item">
+                            <strong>5. Prueba FDM Safe</strong>
+                            Usá la herramienta de corte para imprimir solo una "rodaja" y verificar el calce antes del modelo final.
+                        </div>
                     </div>
 
                     <p style="text-align: center; font-size: 0.7em; color: #555; margin-top: 15px;">
