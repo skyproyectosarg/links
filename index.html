@@ -21,47 +21,76 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#2b5797">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sky3d.com.ar/">
-    <meta property="og:title" content="Sky 3D | Impresión 3D y Diseño Técnico en Catamarca">
-    <meta property="og:description" content="Soluciones avanzadas en fabricación digital y software técnico. SFVC, Catamarca, Argentina.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/skyproyectosarg/links/main/logo.png">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sky 3D | Impresión 3D Catamarca">
-    <meta name="twitter:description" content="Impresión y Diseño 3D de alta precisión en SFVC.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/skyproyectosarg/links/main/logo.png">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Sky 3D",
-      "alternateName": "SkyDev",
-      "image": "https://raw.githubusercontent.com/skyproyectosarg/links/main/logo.png",
-      "@id": "https://sky3d.com.ar",
-      "url": "https://sky3d.com.ar",
-      "telephone": "+5493834007969",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "San Fernando del Valle de Catamarca",
-        "addressRegion": "Catamarca",
-        "addressCountry": "AR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -28.4696,
-        "longitude": -65.7852
-      },
-      "sameAs": [
-        "https://www.instagram.com/sky3dars",
-        "https://tiktok.com/@sky3darg"
-      ]
-    }
-    </script>
+    <style>
+        /* Estilos temporales para el Sorteo - Fáciles de borrar luego */
+        .featured-raffle {
+            width: 100%;
+            margin-bottom: 25px;
+            perspective: 1000px;
+        }
+
+        .raffle-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #74acdf;
+            background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('images/bandera.jpg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 10px 20px rgba(116, 172, 223, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .raffle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(43, 87, 151, 0.5);
+        }
+
+        .raffle-card i {
+            font-size: 2.5rem;
+            color: #2b5797;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .raffle-card h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #2b5797;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+        }
+
+        .raffle-card span {
+            color: #1d3a63;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        .badge-new {
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: #f6b40e;
+            color: #2b5797;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.7rem;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
 <body>
 
@@ -70,6 +99,15 @@
         <h1>Sky 3D</h1>
         <div class="location">
             <i class="fas fa-map-marker-alt"></i> SFVC, Catamarca, Argentina
+        </div>
+
+        <div class="featured-raffle">
+            <a href="sorteo.html" class="raffle-card">
+                <div class="badge-new">¡GRATIS!</div>
+                <i class="fas fa-trophy"></i>
+                <h2>SORTEO MUNDIALISTA 🇦🇷</h2>
+                <span>¡Entrá y sumá tus chances acá!</span>
+            </a>
         </div>
 
         <div class="links-container">
