@@ -10,7 +10,7 @@
     <meta name="keywords" content="sky3d cat, sky 3d catamarca, impresion 3d catamarca, diseño tecnico 3d, franco jesus pacheco, sfvc">
     <meta name="author" content="Franco Jesús Pacheco">
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com; font-src https://cdnjs.cloudflare.com; img-src 'self' https://raw.githubusercontent.com data:; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; font-src https://cdnjs.cloudflare.com; img-src 'self' https://raw.githubusercontent.com data:; base-uri 'self'; form-action 'self';">
 
     <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="192x192" href="icons/web-app-manifest-192x192.png">
@@ -25,11 +25,9 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Estilos temporales para el Sorteo - Fáciles de borrar luego */
         .featured-raffle {
             width: 100%;
             margin-bottom: 25px;
-            perspective: 1000px;
         }
 
         .raffle-card {
@@ -37,58 +35,43 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 30px 20px;
+            padding: 35px 20px;
             border-radius: 15px;
             text-decoration: none;
-            position: relative;
-            overflow: hidden;
-            border: 3px solid #74acdf;
-            background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('images/bandera.jpg');
+            border: 2px solid #a5c7e9;
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('images/bandera.jpg');
             background-size: cover;
             background-position: center;
-            box-shadow: 0 10px 20px rgba(116, 172, 223, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
         }
 
         .raffle-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(43, 87, 151, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            border-color: #74acdf;
         }
 
         .raffle-card i {
-            font-size: 2.5rem;
-            color: #2b5797;
-            margin-bottom: 10px;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            font-size: 2.2rem;
+            color: #334e68;
+            margin-bottom: 12px;
         }
 
         .raffle-card h2 {
             margin: 0;
-            font-size: 1.5rem;
-            color: #2b5797;
+            font-size: 1.4rem;
+            color: #334e68;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 800;
+            letter-spacing: 2px;
+            font-weight: 700;
         }
 
         .raffle-card span {
-            color: #1d3a63;
-            font-size: 0.9rem;
-            margin-top: 5px;
-            font-weight: 600;
-        }
-
-        .badge-new {
-            position: absolute;
-            top: 10px;
-            right: -30px;
-            background: #f6b40e;
-            color: #2b5797;
-            padding: 5px 40px;
-            transform: rotate(45deg);
-            font-size: 0.7rem;
-            font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            color: #546e7a;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -103,10 +86,9 @@
 
         <div class="featured-raffle">
             <a href="sorteo.html" class="raffle-card">
-                <div class="badge-new">¡GRATIS!</div>
                 <i class="fas fa-trophy"></i>
-                <h2>SORTEO MUNDIALISTA 🇦🇷</h2>
-                <span>¡Entrá y sumá tus chances acá!</span>
+                <h2>SORTEO MUNDIALISTA</h2>
+                <span>Tocá aquí para sumar tus chances</span>
             </a>
         </div>
 
