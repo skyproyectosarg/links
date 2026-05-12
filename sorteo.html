@@ -77,6 +77,36 @@
         }
         .btn-download:hover { background-color: #1a3a6b; }
 
+        /* Tarjeta de Chances */
+        .chances-card {
+            background: var(--dark-blue);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        .chances-card h3 { text-align: center; margin-top: 0; }
+        .chance-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .social-icons-mini {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .social-icons-mini a {
+            color: var(--afa-blue);
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+        .social-icons-mini a:hover { color: var(--white); }
+
+        /* Amigos Locales */
         .amigos-section { margin: 30px 0; }
         .amigos-grid {
             display: grid;
@@ -84,10 +114,7 @@
             gap: 15px;
             margin-top: 15px;
         }
-        .amigo-link {
-            text-decoration: none;
-            transition: transform 0.2s;
-        }
+        .amigo-link { text-decoration: none; transition: transform 0.2s; }
         .amigo-link:hover { transform: translateY(-5px); }
         .amigo-logo {
             width: 100%;
@@ -97,27 +124,23 @@
             border: 2px solid var(--afa-blue);
             background: white;
         }
-        .amigo-name {
-            display: block;
-            font-size: 0.75rem;
-            color: #444;
-            margin-top: 5px;
-            font-weight: bold;
-        }
+        .amigo-name { display: block; font-size: 0.75rem; color: #444; margin-top: 5px; font-weight: bold; }
 
-        .chances-card {
-            background: var(--dark-blue);
-            color: white;
+        /* Bases y Condiciones */
+        .rules-box {
+            text-align: left;
+            background: #fdfdfd;
+            border: 1px solid #eee;
             padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #555;
         }
-        .chance-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+        .rules-box h4 { color: var(--dark-blue); margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .rules-box ul { padding-left: 20px; }
+        .rules-box li { margin-bottom: 8px; }
+
         .btn-whatsapp {
             display: block;
             background-color: var(--success-green);
@@ -148,10 +171,23 @@
 
         <div class="chances-card">
             <h3>¿Cómo sumar CHANCES?</h3>
-            <div class="chance-row"><span>Seguir a <strong>@sky3darg</strong></span> <span>10 c/u</span></div>
+            <div class="chance-row">
+                <div>
+                    <strong>Seguir a @sky3darg</strong><br>
+                    <div class="social-icons-mini">
+                        <a href="https://instagram.com/sky3darg" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://facebook.com/Sky3DArg" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://tiktok.com/@sky3darg" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <span>10 c/u</span>
+            </div>
             <div class="chance-row"><span>Compartir en Historias</span> <span>15 pts</span></div>
-            <div class="chance-row"><span>Etiquetar amigos</span> <span>5 pts</span></div>
-            <div class="chance-row"><span>Visto en Estado WSP</span> <span>1 p/visto</span></div>
+            <div class="chance-row"><span>Etiquetar amigos en el post</span> <span>5 pts</span></div>
+            <div class="chance-row">
+                <span>Visto en Estado WSP<br><small>(1 captura por semana)</small></span> 
+                <span>1 p/captura</span>
+            </div>
         </div>
 
         <div class="amigos-section">
@@ -176,8 +212,20 @@
             <i class="fa-brands fa-whatsapp"></i> ENVIAR CAPTURAS POR WSP
         </a>
 
+        <div class="rules-box">
+            <h4>Bases y Condiciones</h4>
+            <ul>
+                <li><strong>Participación:</strong> El sorteo es gratuito y exclusivo para residentes de la provincia de <strong>Catamarca</strong>.</li>
+                <li><strong>Premios:</strong> Se sortearán 7 premios individuales. Una vez que un participante resulte ganador de un premio, será excluido de los sorteos restantes (1 premio por persona).</li>
+                <li><strong>Validación:</strong> Para acreditar las chances de seguimiento y estados de WhatsApp, se debe enviar captura de pantalla al número oficial o por mensaje directo.</li>
+                <li><strong>WhatsApp:</strong> Se contabilizará una (1) chance por cada captura de estado compartido, con un máximo de una captura por semana por participante.</li>
+                <li><strong>Sorteo:</strong> Se realizará el día <strong>Sábado 13 de Junio</strong>. Los resultados se publicarán en nuestras redes sociales.</li>
+                <li><strong>Entrega:</strong> La entrega de los premios se coordinará directamente con cada ganador para ser efectiva en San Fernando del Valle de Catamarca.</li>
+            </ul>
+        </div>
+
         <p style="font-size: 0.8rem; color: #777; margin-top: 20px;">
-            Sorteo: Sábado 13/06 | Válido para Catamarca.
+            Sky 3D - Catamarca, Argentina.
         </p>
     </div>
 
