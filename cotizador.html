@@ -127,17 +127,18 @@
         .row { display: flex; gap: 10px; }
         .row div { flex: 1; }
         .hint { font-size: 9px; color: #52525b; margin-top: 4px; display: block; }
+        
         .results-panel {
             background: var(--card);
             border-radius: 20px;
             border: 1px solid var(--border);
             overflow: hidden;
             display: grid;
-            grid-template-columns: 1fr 350px;
+            grid-template-columns: 1fr auto; 
             margin-bottom: 30px;
             order: 4;
         }
-        .results-details { padding: 25px; border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+        .results-details { padding: 25px; border-left: 1px solid var(--border); display: flex; flex-direction: column; }
         .results-hero { 
             background: rgba(139, 92, 246, 0.04); 
             padding: 30px; 
@@ -146,10 +147,10 @@
             justify-content: center; 
             align-items: center; 
         }
-        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .stat-grid { display: grid; grid-template-columns: repeat(3, minmax(115px, 1fr)); gap: 12px; }
         .stat-box { background: #09090b; padding: 12px; border-radius: 12px; border: 1px solid var(--border); }
-        .stat-label { font-size: 9px; color: var(--text-dim); text-transform: uppercase; display: block; margin-bottom: 4px; }
-        .stat-value { font-size: 15px; font-weight: 800; color: white; }
+        .stat-label { font-size: 9px; color: var(--text-dim); text-transform: uppercase; display: block; margin-bottom: 4px; white-space: nowrap; }
+        .stat-value { font-size: 15px; font-weight: 800; color: white; white-space: nowrap; }
         .price-main { font-size: 52px; font-weight: 900; color: var(--accent); margin: 10px 0; letter-spacing: -2px; }
         .ml-box {
             background: rgba(254, 240, 138, 0.05);
@@ -212,7 +213,8 @@
             .card.active { display: flex; animation: slideIn 0.3s ease; }
             .results-panel { order: 4; grid-template-columns: 1fr; border-radius: 16px; display: flex; flex-direction: column; }
             .results-hero { order: 1; border-bottom: 1px solid var(--border); }
-            .results-details { order: 2; border-right: none; border-top: none; border-bottom: none; }
+            /* AJUSTE MÓVIL DEL BORDE */
+            .results-details { order: 2; border-left: none; border-top: none; border-bottom: none; }
             .projects-section { order: 5; }
             .stat-grid { grid-template-columns: repeat(2, 1fr); }
             .price-main { font-size: 42px; }
@@ -444,7 +446,6 @@
         
         const tTotal = hImp + (mImp / 60);
         
-        // COSTOS MULTIPLICABLES (Insumos, Energía, Amortización, Gastos Fijos de Local)
         const costoMat = ((pKg / 1000) * peso * (1 + fail));
         const costoElec = (watts / 1000) * tTotal * ckwh;
         const amortMant = ((vMaq / vUtil) + cMant) * tTotal;
@@ -452,10 +453,8 @@
         
         const subtotalMultiplicable = costoMat + costoElec + amortMant + fijosProporcionales;
         
-        // COSTOS NETOS (Mano de obra directa y Extras)
         const costoLaborNeta = (vHH / 60) * tMan;
         
-        // RESULTADOS
         const costoRealTotal = subtotalMultiplicable + costoLaborNeta + extras;
         const precioSugerido = (subtotalMultiplicable * multi) + costoLaborNeta + extras;
         const precioML = (precioSugerido + mlF) / (1 - mlP);
