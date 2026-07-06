@@ -3,147 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Sky 3D | Impresión 3D y Diseño Técnico en Catamarca</title>
-
-    <meta name="description" content="Sky 3D: Impresión 3D de alta precisión y diseño técnico en SFVC, Catamarca. Expertos en prototipado, repuestos y software SkyDev / SkyScale 3D.">
-    <meta name="keywords" content="sky3d cat, sky 3d catamarca, impresion 3d catamarca, diseño tecnico 3d, franco jesus pacheco, sfvc">
+    <title>SkyScale 3D | Medidas y Escalado</title>
     <meta name="author" content="Franco Jesús Pacheco">
-
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; font-src https://cdnjs.cloudflare.com; img-src 'self' https://raw.githubusercontent.com data:; base-uri 'self'; form-action 'self';">
-
-    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="icons/web-app-manifest-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="icons/web-app-manifest-512x512.png">
-    <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-    
-    <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#2b5797">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
-        .featured-raffle {
-            width: 100%;
-            margin-bottom: 25px;
+        :root {
+            --bg: #09090b;
+            --card: #18181b;
+            --card-hover: #27272a;
+            --border: #27272a;
+            --border-light: #3f3f46;
+            --text: #f4f4f5;
+            --text-dim: #a1a1aa;
+            --accent: #8b5cf6;
+            --accent-hover: #7c3aed;
+            --accent-dim: rgba(139, 92, 246, 0.1);
+            --success: #10b981;
+            --danger: #ef4444;
         }
-
-        .raffle-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 35px 20px;
-            border-radius: 15px;
-            text-decoration: none;
-            border: 2px solid #a5c7e9;
-            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('images/bandera.jpg');
-            background-size: cover;
-            background-position: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-
-        .raffle-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-            border-color: #74acdf;
-        }
-
-        .raffle-card i {
-            font-size: 2.2rem;
-            color: #334e68;
-            margin-bottom: 12px;
-        }
-
-        .raffle-card h2 {
-            margin: 0;
-            font-size: 1.4rem;
-            color: #334e68;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
-        }
-
-        .raffle-card span {
-            color: #546e7a;
-            font-size: 0.85rem;
-            margin-top: 8px;
-            font-weight: 500;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); color: var(--text); min-height: 100vh; padding: 8px; font-size: 14px; }
+        @media (min-width: 768px) { body { padding: 12px; font-size: 16px; } }
+        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        input[type=number] { -moz-appearance: textfield; }
+        .container { max-width: 1024px; margin: 0 auto; width: 100%; }
+        .header { display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 16px; }
+        @media (min-width: 768px) { .header { flex-direction: row; justify-content: space-between; align-items: center; padding-bottom: 30px; margin-bottom: 30px; } }
+        .logo-box { width: 40px; height: 40px; background: var(--accent); border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 18px; color: white; transform: rotate(3deg); box-shadow: 0 8px 16px rgba(139,92,246,0.25); }
+        .header-title { font-size: 22px; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; font-style: italic; background: linear-gradient(to right, #8b5cf6, #c4b5fd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @media (min-width: 768px) { .header-title { font-size: 32px; } }
+        .tabs { display: flex; background: var(--card); padding: 4px; border-radius: 10px; border: 1px solid var(--border); }
+        .tab-btn { flex: 1; padding: 10px 16px; border-radius: 6px; font-size: 12px; font-weight: 700; color: var(--text-dim); }
+        .tab-btn.active { background: var(--accent); color: white; }
+        .dashboard-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+        @media (min-width: 1024px) { .dashboard-grid { grid-template-columns: 260px 1fr; gap: 32px; } }
+        .sidebar { display: flex; flex-direction: column; gap: 12px; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
+        .input-label { display: block; font-size: 10px; font-weight: 900; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; font-family: monospace; font-style: italic; }
+        .input-field { width: 100%; background: var(--bg); border: 1px solid var(--border); color: white; padding: 10px 12px; border-radius: 10px; font-size: 13px; font-weight: 700; outline: none; font-family: monospace; }
+        .menu-btn { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; color: var(--text-dim); font-size: 12px; font-weight: 800; text-transform: uppercase; width: 100%; }
+        .menu-btn.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+        .calc-hero { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media (min-width: 768px) { .calc-hero { padding: 32px; grid-template-columns: 1fr 1fr; gap: 40px; border-radius: 32px; } }
+        .result-section { background: var(--accent-dim); border: 2px dashed rgba(139,92,246,0.2); border-radius: 16px; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        .result-value { font-size: 32px; font-weight: 900; color: white; margin: 16px 0; letter-spacing: -1px; }
+        @media (min-width: 768px) { .result-value { font-size: 54px; } }
+        .btn { padding: 12px; border-radius: 12px; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; cursor: pointer; width: 100%; }
+        .btn-primary { background: var(--accent); color: white; box-shadow: 0 8px 16px rgba(139,92,246,0.25); }
+        .btn-secondary { background: var(--card); color: var(--text-dim); border: 1px solid var(--border); }
+        .history-item { background: var(--bg); border: 1px solid rgba(39,39,42,0.5); padding: 12px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        details { background: rgba(24,24,27,0.8); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 12px; }
+        summary { padding: 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        .det-content { padding: 0 16px 20px 16px; color: var(--text-dim); font-size: 13px; }
     </style>
 </head>
 <body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <div class="logo-box"><i class="fas fa-ruler-combined"></i></div>
+                <div>
+                    <h1 class="header-title">SkyScale 3D</h1>
+                    <p class="header-subtitle">Cálculos de precisión técnica</p>
+                </div>
+            </div>
+            <div class="tabs">
+                <button id="btn-tab-calculators" onclick="switchTab('calculators')" class="tab-btn active">Herramientas</button>
+                <button id="btn-tab-guide" onclick="switchTab('guide')" class="tab-btn">Ayuda</button>
+            </div>
+        </header>
 
-    <div class="profile-container">
-        <img src="logo.png" alt="Sky 3D Logo" class="logo">
-        <h1>Sky 3D</h1>
-        <div class="location">
-            <i class="fas fa-map-marker-alt"></i> SFVC, Catamarca, Argentina
+        <div id="tab-calculators" class="tab-content active" style="display: block;">
+            <div class="dashboard-grid">
+                <div class="sidebar">
+                    <div class="menu-list" style="display: flex; flex-direction: column; gap: 10px;">
+                        <button onclick="setCalc('diameter')" class="menu-btn active" id="btn-diameter">
+                            <i class="fas fa-circle-notch"></i> Diámetro
+                        </button>
+                        <button onclick="setCalc('scale')" class="menu-btn" id="btn-scale">
+                            <i class="fas fa-expand-arrows-alt"></i> Escalado
+                        </button>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <div class="calc-hero">
+                        <div id="inputs-container">
+                            <div id="group-diameter">
+                                <h3 class="input-label" style="margin-bottom: 15px; color: white;">Configuración de Diámetro</h3>
+                                <div class="input-wrapper" style="margin-bottom: 15px;">
+                                    <label class="input-label">Método de Medición</label>
+                                    <select id="diag-method" onchange="calcRes()" class="input-field">
+                                        <option value="cinta">Circunferencia (Cinta)</option>
+                                        <option value="calibre">Lectura Calibre (Puntos V)</option>
+                                    </select>
+                                </div>
+                                <div class="input-wrapper" style="margin-bottom: 15px;">
+                                    <label class="input-label" id="val-label">Medida (mm)</label>
+                                    <input type="number" id="diag-val" value="0" step="0.1" class="input-field" oninput="calcRes()">
+                                </div>
+                                <div class="input-wrapper">
+                                    <label class="input-label">Tolerancia (mm)</label>
+                                    <input type="number" id="diag-tol" value="0.2" step="0.05" class="input-field" oninput="calcRes()">
+                                </div>
+                            </div>
+
+                            <div id="group-scale" style="display: none;">
+                                <h3 class="input-label" style="margin-bottom: 15px; color: white;">Configuración de Escala</h3>
+                                <div class="input-wrapper" style="margin-bottom: 15px;">
+                                    <label class="input-label">Medida STL (Slicer)</label>
+                                    <input type="number" id="scale-stl" value="100" class="input-field" oninput="calcRes()">
+                                </div>
+                                <div class="input-wrapper">
+                                    <label class="input-label">Medida Objetivo (Real)</label>
+                                    <input type="number" id="scale-real" value="100" class="input-field" oninput="calcRes()">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="result-section">
+                            <p class="result-label">Resultado Final</p>
+                            <div class="result-value" id="main-result">0.00 mm</div>
+                            <div style="display: flex; gap: 10px; width: 100%;">
+                                <button onclick="saveResult()" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
+                                <button onclick="copyResult()" class="btn btn-secondary"><i class="fas fa-copy"></i></button>
+                            </div>
+                            <p id="sub-result" style="font-size: 11px; margin-top: 15px; color: var(--text-dim); font-weight: 700; text-transform: uppercase;">Radio: 0.00 mm</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h4 class="input-label" style="color: white;"><i class="fas fa-history"></i> Historial Temporal</h4>
+                            <button onclick="clearHist()" style="font-size: 10px; color: var(--danger); font-weight: 800; text-transform: uppercase;">Borrar</button>
+                        </div>
+                        <div id="history-list">
+                            <p style="text-align: center; color: var(--text-dim); font-style: italic; font-size: 12px;">Vacío</p>
+                        </div>
+                        <p style="font-size: 9px; color: var(--text-dim); text-align: center; margin-top: 15px; opacity: 0.6; font-weight: 800; text-transform: uppercase;">* Los datos se borrarán al cerrar la pestaña.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="featured-raffle">
-            <a href="sorteo.html" class="raffle-card">
-                <i class="fas fa-trophy"></i>
-                <h2>SORTEO MUNDIALISTA</h2>
-                <span>Tocá aquí para sumar tus chances</span>
-            </a>
+        <div id="tab-guide" class="tab-content" style="display: none;">
+            <div class="guide-container">
+                <details>
+                    <summary>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 35px; height: 35px; background: var(--accent-dim); border-radius: 8px; display: flex; justify-content: center; align-items: center; color: var(--accent);"><i class="fas fa-info"></i></div>
+                            <h3 class="input-label" style="color: white; margin: 0;">Guía de Escalado</h3>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="det-content">
+                        <p style="margin-bottom: 10px;"><strong>1. Medición del Inserto:</strong> Medí el contorno superior del aluminio con cinta de modista y anotá los cm exactos.</p>
+                        <p><strong>2. Medición del Diseño (STL):</strong> En tu slicer, medí el diámetro interno del hueco donde encastra el aluminio.</p>
+                    </div>
+                </details>
+                <div class="card" style="border: 1px dashed var(--accent);">
+                    <p style="font-size: 12px; color: var(--text-dim); line-height: 1.6;">Agradecimientos al autor del diseño original en <strong>MakerWorld</strong> por el accesorio de medición de radios que inspira estas herramientas.</p>
+                </div>
+            </div>
         </div>
 
-        <div class="links-container">
-            <a href="https://instagram.com/sky3darg" target="_blank" class="link-card">
-                <i class="fa-brands fa-instagram"></i>
-                <span>Instagram</span>
-            </a>
-            
-            <a href="https://tiktok.com/@sky3darg" target="_blank" class="link-card">
-                <i class="fa-brands fa-tiktok"></i>
-                <span>TikTok</span>
-            </a>
-            
-            <a href="https://youtube.com/@sky3darg" target="_blank" class="link-card">
-                <i class="fa-brands fa-youtube"></i>
-                <span>YouTube</span>
-            </a>
-            
-            <a href="https://facebook.com/Sky3DArg" target="_blank" class="link-card">
-                <i class="fa-brands fa-facebook"></i>
-                <span>Facebook</span>
-            </a>
-            
-            <a href="https://x.com/sky3darg" target="_blank" class="link-card">
-                <i class="fa-brands fa-x-twitter"></i>
-                <span>X (Twitter)</span>
-            </a>
-            
-            <a href="https://threads.net/@sky3darg" target="_blank" class="link-card">
-                <i class="fa-brands fa-threads"></i>
-                <span>Threads</span>
-            </a>
-
-            <a href="apps.html" class="link-card" style="border: 1px solid var(--accent-color);">
-                <i class="fas fa-laptop-code"></i>
-                <span>SkyDev Apps (APK)</span>
-            </a>
-
-            <a href="mailto:info@sky3d.com.ar" class="link-card">
-                <i class="fas fa-envelope"></i>
-                <span>Contacto Email</span>
-            </a>
-            
-            <a href="https://wa.me/5493834007969" target="_blank" class="link-card">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>WhatsApp</span>
-            </a>
-        </div>
+        <footer style="margin-top: 50px; padding: 20px; border-top: 1px solid var(--border); text-align: center;">
+            <p style="font-size: 10px; font-weight: 900; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px;">Sky Toolbox @ 2026</p>
+        </footer>
     </div>
 
-    <footer>
-        &copy; 2026 Sky 3D - Soluciones en Impresión y Diseño
-    </footer>
+    <script>
+        let currentCalc = 'diameter';
+        let history = JSON.parse(sessionStorage.getItem('skyscale_hist')) || [];
 
-    <script src="script.js"></script>
+        function switchTab(tab) {
+            document.getElementById('tab-calculators').style.display = tab === 'calculators' ? 'block' : 'none';
+            document.getElementById('tab-guide').style.display = tab === 'guide' ? 'block' : 'none';
+            document.getElementById('btn-tab-calculators').classList.toggle('active', tab === 'calculators');
+            document.getElementById('btn-tab-guide').classList.toggle('active', tab === 'guide');
+        }
+
+        function setCalc(type) {
+            currentCalc = type;
+            document.getElementById('group-diameter').style.display = type === 'diameter' ? 'block' : 'none';
+            document.getElementById('group-scale').style.display = type === 'scale' ? 'block' : 'none';
+            document.getElementById('btn-diameter').classList.toggle('active', type === 'diameter');
+            document.getElementById('btn-scale').classList.toggle('active', type === 'scale');
+            calcRes();
+        }
+
+        function calcRes() {
+            const resDisplay = document.getElementById('main-result');
+            const subDisplay = document.getElementById('sub-result');
+            
+            if (currentCalc === 'diameter') {
+                const method = document.getElementById('diag-method').value;
+                const val = parseFloat(document.getElementById('diag-val').value) || 0;
+                const tol = parseFloat(document.getElementById('diag-tol').value) || 0;
+                let diam = (method === 'cinta') ? (val / Math.PI) : (val * 2.4142 * 2);
+                let final = diam + tol;
+                resDisplay.innerText = final.toFixed(2) + " mm";
+                subDisplay.innerText = "Radio: " + (final / 2).toFixed(2) + " mm";
+            } else {
+                const stl = parseFloat(document.getElementById('scale-stl').value) || 1;
+                const real = parseFloat(document.getElementById('scale-real').value) || 1;
+                const factor = (real / stl) * 100;
+                resDisplay.innerText = factor.toFixed(2) + " %";
+                subDisplay.innerText = "Factor Slicer";
+            }
+        }
+
+        function saveResult() {
+            const val = document.getElementById('main-result').innerText;
+            const type = currentCalc === 'diameter' ? 'DIAM' : 'SCALE';
+            history.unshift({ type, val, time: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) });
+            if (history.length > 5) history.pop();
+            sessionStorage.setItem('skyscale_hist', JSON.stringify(history));
+            renderHist();
+        }
+
+        function renderHist() {
+            const list = document.getElementById('history-list');
+            if (history.length === 0) {
+                list.innerHTML = '<p style="text-align: center; color: var(--text-dim); font-style: italic; font-size: 12px;">Vacío</p>';
+                return;
+            }
+            list.innerHTML = history.map(item => `
+                <div class="history-item">
+                    <div><span style="color:var(--accent); font-weight:900; font-size:10px;">${item.type}</span><br/><span style="font-weight:800; font-size:14px;">${item.val}</span></div>
+                    <span style="font-size:10px; color:var(--text-dim);">${item.time}</span>
+                </div>
+            `).join('');
+        }
+
+        function clearHist() { history = []; sessionStorage.removeItem('skyscale_hist'); renderHist(); }
+        function copyResult() { navigator.clipboard.writeText(document.getElementById('main-result').innerText); }
+
+        window.onload = renderHist;
+    </script>
 </body>
 </html>
