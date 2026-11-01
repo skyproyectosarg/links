@@ -165,14 +165,26 @@
             const links = document.querySelectorAll('.link-card');
 
             links.forEach(link => {
-                link.addEventListener('click', () => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetUrl = link.href;
+                    const targetBlank = link.getAttribute('target');
+
                     const rect = link.getBoundingClientRect();
                     const clickX = rect.left + rect.width / 2;
                     const clickY = rect.top + rect.height / 2;
 
-                    for (let i = 0; i < 4; i++) {
+                    for (let i = 0; i < 5; i++) {
                         createBat(clickX, clickY);
                     }
+
+                    setTimeout(() => {
+                        if (targetBlank === '_blank') {
+                            window.open(targetUrl, '_blank');
+                        } else {
+                            window.location.href = targetUrl;
+                        }
+                    }, 400);
                 });
             });
 
@@ -184,7 +196,7 @@
                 bat.style.left = `${x}px`;
                 bat.style.top = `${y}px`;
 
-                const randomX = (Math.random() - 0.5) * 200;
+                const randomX = (Math.random() - 0.5) * 220;
                 bat.style.setProperty('--rand-x', `${randomX}px`);
 
                 document.body.appendChild(bat);
