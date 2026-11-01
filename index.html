@@ -33,7 +33,7 @@
     <meta name="twitter:image" content="https://raw.githubusercontent.com/skyproyectosarg/links/main/logo.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <style>
         body {
@@ -42,6 +42,31 @@
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
+        }
+
+        .flying-bat {
+            position: fixed;
+            font-size: 24px;
+            color: #a78bfa;
+            pointer-events: none;
+            z-index: 9999;
+            animation: flyBat 1.2s ease-out forwards;
+            text-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+        }
+
+        @keyframes flyBat {
+            0% {
+                transform: translate(0, 0) scale(0.5) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(var(--rand-x), -120px) scale(1.2) rotate(15deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translate(calc(var(--rand-x) * 1.5), -250px) scale(0.8) rotate(-15deg);
+                opacity: 0;
+            }
         }
     </style>
 
@@ -135,5 +160,40 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.link-card');
+
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    const rect = link.getBoundingClientRect();
+                    const clickX = rect.left + rect.width / 2;
+                    const clickY = rect.top + rect.height / 2;
+
+                    for (let i = 0; i < 4; i++) {
+                        createBat(clickX, clickY);
+                    }
+                });
+            });
+
+            function createBat(x, y) {
+                const bat = document.createElement('div');
+                bat.className = 'flying-bat';
+                bat.innerHTML = '<i class="fas fa-bat"></i>';
+                
+                bat.style.left = `${x}px`;
+                bat.style.top = `${y}px`;
+
+                const randomX = (Math.random() - 0.5) * 200;
+                bat.style.setProperty('--rand-x', `${randomX}px`);
+
+                document.body.appendChild(bat);
+
+                setTimeout(() => {
+                    bat.remove();
+                }, 1200);
+            }
+        });
+    </script>
 </body>
 </html>
